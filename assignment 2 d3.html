@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<html>
+    <style>
+        .content {
+            max-width: 75%;
+            margin: auto;
+        }
+        .imageContent {
+            max-width: 90%;
+            margin: auto;
+        }
+    </style>
+<body>
+<div class="content">
+    <h1>
+        Module 2 Assignment
+    </h1>
+
+    <h3>
+        Webpage link: ...
+    </h3>
+
+    <p>
+        The data used in the graph below comes from a research paper examining 
+        the relationship between class start times, sleep, circadian preference, 
+        and academic performance in college students. There were a total of 255 
+        participants from a liberal arts college in the northeast of the US, however 
+        2 were excluded from the final results due to unusable data. Of the participants, 
+        60% were female, and the majority lived on campus and didn't have off-campus jobs. 
+        The data comes from questionnaires, a sleep survey, and cognitive function tests.
+    </p>
+
+    <p>
+        The researchers concluded that later class times were correlated with longer sleep, 
+        less sleepiness, and fewer classes missed for students. 
+        Despite that, later class times neither led to nor correlated with better academic 
+        performance (GPA). 
+        Rather, students with later class times were more likely to have higher alcohol consumption, 
+        which was the factor that most strongly affected academic performance. 
+        To represent their data and analysis in a visual format, the researchers 
+        created tables and paths. An example of one of their path analysis is given below:
+    </p>
+
+    <img src="class start times on sleep.png" 
+        alt="path analysis for the effects of class start times on sleep"
+        class="imageContent">
+
+    <p>
+        I wanted to remix the existing story told by the research paper by exploring 
+        other aspects of the data, in addition to creating visualizations that are 
+        more easily understandable to the casual viewer. My central question is 
+        whether there is a strong relationship between poor mental health, poor sleep quality, 
+        and therefore more classes missed. 
+        Thus, the central question is split into three main sections of interest.
+        <ul>
+            <li>Are poorer mental health and mental state strongly related to poor sleep quality?</li>
+            <li>Is poor sleep quality related to more classes missed?</li>
+            <li>A closer look into gender distinctions</li>
+        </ul>
+    </p>
+
+    <p>
+        Data Source Citation: 
+        Onyper, S. V., Thacher, P. V., Gilbert, J. W., & Gradess, S. G. (2012). 
+        Class start times, sleep, and academic performance in college: a path analysis. 
+        Chronobiology international, 29(3), 318–335. https://doi.org/10.3109/07420528.2012.655868
+    </p>
+
+    <p>
+        Website with more information on data categories:
+        https://rdrr.io/cran/Lock5withR/man/SleepStudy.html
+    </p>
+</div>
+</body>
+</html>
+
+<html>
+    <style>
+        .content {
+            max-width: 75%;
+            margin: auto;
+        }
+        .imageContent {
+            max-width: 90%;
+            margin: auto;
+        }
+    </style>
+<body>
+<div class="content">
+    <h3>
+        Are poorer mental health and mental state strongly related to poor sleep quality?
+    </h3>
+    <h4>
+        Platform: RStudio
+    </h4>
+
+    <p>
+        Legend: <br>
+        Solid black line = Line of best fit (trend)
+    </p>
+
+    <img src="r depression scatterplot.png" 
+        alt="Scatterplots with line of best fit for Depression Scores vs Poor Sleep Quality"
+        class="imageContent">
+
+    <img src="r anxiety scatterplot.png" 
+        alt="Scatterplots with line of best fit for Anxiety Scores vs Poor Sleep Quality"
+        class="imageContent">
+    
+    <img src="r stress scatterplot.png" 
+        alt="Scatterplots with line of best fit for Stress Scores vs Poor Sleep Quality"
+        class="imageContent">
+
+    <p>
+        Here, depression scores and anxiety scores are used as measures for mental health, 
+        while stress scores are used as measures for mental state. A high score means 
+        that the student is experiencing bad mental health or in a bad mental state. 
+        A high number for poor sleep quality indicates the student experienced low quality sleep.
+    </p>
+    <p>
+        As we can see from the line of best fit in the three scatterplots, 
+        the general trend is that each of the scores 
+        are positively correlated with poor sleep quality. 
+        The line of best fit is not as strong for the scatterplot on stress score, 
+        and the datapoints in the graph are more evenly divided above and below the 
+        line of best fit. So, stress scores are less strongly related to indicating 
+        poor sleep quality.
+        Although we aren't able to conclude causation, negative mental health and state 
+        are strongly related (and perhaps predictive) of poorer sleep quality.
+    </p>
+</div>
+</body>
+</html>
+
+<html>
+    <style>
+        .content {
+            max-width: 75%;
+            margin: auto;
+        }
+        .imageContent {
+            max-width: 90%;
+            margin: auto;
+        }
+    </style>
+<body>
+<div class="content">
+    <h3>
+        Is poor sleep quality related to more classes missed?
+    </h3>
+    <h4>
+        Platform: Tableau
+    </h4>
+
+    <p>
+        Legend: <br>
+        Blue line = Poor Sleep Quality vs Average Classes Missed <br>
+        Grey dotted line = Line of best fit (trend) <br>
+        Solid line = Average classes missed overall and 95% Confidence Interval
+    </p>
+
+    <img src="tableau poor sleep vs classes missed.png" 
+        alt="Line graph with average and line of best fit for Poor Sleep Quality vs Classes Missed"
+        class="imageContent">
+
+    <p>
+        After exploring possible sources of poor sleep quality in the section above, now 
+        we're looking at the relationship between poor sleep quality and average number of classes missed. 
+        This is based on the assumption that poorer sleep quality would lead to students 
+        missing more classes, sleeping through them or purposefully skipping them. 
+        From the line graph, we can see that there is a positive correlation between 
+        poor sleep quality and average number of missed classes, which support the assumption. 
+        Relating this conclusion to the first section, it is possible that worse mental health and state 
+        are related to more missed classes as well.
+    </p>
+</div>
+</body>
+</html>
+
+
+<html>
+    <style>
+        .content {
+            max-width: 75%;
+            margin: auto;
+        }
+    </style>
+<body>
+<div class="content">
+    <h3>
+        A closer look into gender distinctions in Maximum DAS Scores, Poor Sleep Quality, 
+        Classes Missed, and (a new factor) Alcoholic Drinks
+    </h3>
+    <h4>
+        JavaScript Library: d3.js
+    </h4>
+
+    <p>
+        Legend: <br>
+        DAS Score = Depression, Anxiety, Stress Score <br>
+        0 = Female <br>
+        1 = Male
+    </p>
+
+    <!-- reference code from https://d3-graph-gallery.com/graph/barplot_button_data_csv.html 
+        and https://d3-graph-gallery.com/graph/custom_axis.html
+    -->
+
+    <!-- load d3.js version 6 -->
+    <script src="https://d3js.org/d3.v6.js"></script>
+
+    <!-- buttons to switch view -->
+    <button onclick="update('das_score')">Max DAS Score</button>
+    <button onclick="update('poor_sleep_quality')">Max Poor Sleep Quality</button>
+    <button onclick="update('classes_missed')">Max Classes Missed</button>
+    <button onclick="update('drinks')">Max Alcoholic Drinks</button>
+
+    <!-- div where graph will be in webpage -->
+    <div id="barGraph"></div>
+
+    <script>
+        // dimensions and margins of graph
+        const margin = {top: 10, right: 30, bottom: 30, left: 60};
+        const width = 460 - margin.left - margin.right;
+        const height = 400 - margin.top - margin.bottom;
+
+        // append svg obj to body of page
+        const svg1 = d3.select("#barGraph")
+                        .append("svg")
+                        .attr("width", width + margin.left + margin.right)
+                        .attr("height", height + margin.top + margin.bottom)
+                        .append("g")
+                        .attr("transform", `translate(${margin.left}, ${margin.top})`);
+
+        // initialize x axis
+        const x = d3.scaleBand()
+                .range([ 0, width ])
+                .padding(0.2);
+        const xAxis = svg1.append("g")
+                .attr("transform", `translate(0,${height})`);
+
+        // initialize y axis
+        const y = d3.scaleLinear()
+                .range([ height, 0]);
+        const yAxis = svg1.append("g")
+                .attr("class", "myYaxis");
+
+        // x axis label
+        svg1.append("text")
+            .attr("text-anchor", "end")
+            .attr("x", width)
+            .attr("y", height + margin.top + 20)
+            .text("Gender");
+
+        function update(selectedVar) {
+            // load dataset
+            d3.csv("SleepStudy.csv", function(d){
+                return {
+                    // numerical data
+                    gpa: +d["GPA"],
+                    classes_missed: +d["ClassesMissed"],
+                    avg_sleep: +d["AverageSleep"],
+
+                    cognition_zscore: +d["CognitionZscore"],
+                    poor_sleep_quality: +d["PoorSleepQuality"],
+
+                    depression: +d["DepressionScore"],
+                    anxiety: +d["AnxietyScore"],
+                    stress: +d["StressScore"],
+
+                    das_score: +d["DASScore"],
+                    happiness: +d["Happiness"],
+
+                    drinks: +d["Drinks"],
+
+                    // categorical data
+                    gender: +d["Gender"],
+                    class_year: +d["ClassYear"],
+                    lark_owl: d["LarkOwl"],
+                    all_nighter: +d["AllNighter"],
+
+                    alcohol_use: d["AlcoholUse"]
+                }
+            }).then(function(data) {
+
+                // group data, attempt at average
+                // groupedData = d3.rollup(data, v => { return {
+                //     gpa: d3.mean(v, d => d.gpa),
+                //     drinks: d3.mean(v, d => d.drinks),
+                //     classes_missed: d3.mean(v, d => d.classes_missed)
+                // }},
+                
+                //     d => d.gender)
+                
+                // console.log(groupedData)
+
+                // x axis
+                x.domain(data.map(d => d.gender));
+                xAxis.transition().duration(1000).call(d3.axisBottom(x));
+
+                // y axis
+                y.domain([0, d3.max(data, d => +d[selectedVar]) ]);
+                yAxis.transition().duration(1000).call(d3.axisLeft(y));
+
+                // variable u: map data to existing bars
+                const u = svg1.selectAll("rect")
+                .data(data)
+
+                // update bars
+                u.join("rect")
+                .transition()
+                .duration(1000)
+                    .attr("x", d => x(d.gender))
+                    .attr("y", d => y(d[selectedVar]))
+                    .attr("width", x.bandwidth())
+                    .attr("height", d => height - y(d[selectedVar]))
+                    .attr("fill", "#69b3a2")
+            })
+        }
+
+        update('das_score')
+
+    </script>
+
+    <p>
+        After looking at mental health and state in relation to poor sleep quality, then 
+        poor sleep quality in relation to missed classes, I wanted to explore them further 
+        by seeing if there were any gender differences. This is partially because 
+        the research paper didn't seem to focus much on this quality in their conclusions. 
+        For this, I thought it would be interesting to explore the maximum values for each gender, then 
+        compare between, as the previous visualizations dealt with lines of best fit and averages. 
+    </p>
+    <p>
+        Female students had the highest maximum for DAS Score and Poor Sleep Quality. 
+        These results support the correlation found in the first section, on the 
+        relationship between DAS Score and Poor Sleep Quality. 
+        However, female students also had the lowest maximum for classes missed, 
+        which does not follow the expected relationship found in the second section. 
+        Another factor we could consider from the dataset are the number of alcoholic drinks consumed. 
+        The male students had the highest maximum drinks consumed, double that for female students. 
+        So, perhaps, alcohol consumption more strongly negatively influences their ability to attend class.
+    </p>
+    <p>
+        Disclaimer: The averages for the above data also followed the trend for maximums.
+    </p>
+
+    <h3>
+        Conclusion
+    </h3>
+    <p>
+        In sum, the path analysis diagrams designed by the researchers are better able to 
+        illustrate the different relationships between different factors, which makes them 
+        harder to understand for the casual viewer. On the other hand, the visualizations on 
+        this webpage are easier to understand, however they aren't as able to represent the 
+        complex relationship between each factor and their influences on one another. DAS Score and 
+        Poor Sleep Quality seem pretty strongly correlated, however they seem less influential 
+        in terms of classes missed when considering gender. For that, alcohol may have a 
+        stronger relationship, with more consumed, then more classes missed.
+    </p>
+
+</div>
+</body>
+</html>
+
+<!-- <html>
+<style>
+        .content {
+            max-width: 75%;
+            margin: auto;
+        }
+    </style>
+<body>
+<div class="content">
+    <h3>
+        ...
+    </h3>
+
+    // div where graph will be in webpage
+    <div id="scatterPlot"></div>
+
+    <script>
+        // dimensions and margins of graph
+        // const margin = {top: 10, right: 30, bottom: 30, left: 60};
+        // const width = 460 - margin.left - margin.right;
+        // const height = 400 - margin.top - margin.bottom;
+
+        // append svg obj to body of page
+        const svg2 = d3.select("#scatterPlot")
+                        .append("svg")
+                        .attr("width", width + margin.left + margin.right)
+                        .attr("height", height + margin.top + margin.bottom)
+                        .append("g")
+                        .attr("transform", `translate(${margin.left}, ${margin.top})`);
+
+        // load dataset
+        d3.csv("SleepStudy.csv", function(d){
+            return {
+                // numerical data
+                gpa: +d["GPA"],
+                classes_missed: +d["Classes Missed"],
+                // higher than or less than certain number of classes missed (categorical)
+                avg_sleep: +d["AverageSleep"],
+
+                cognition_zscore: +d["CognitionZscore"],
+                poor_sleep_quality: +d["PoorSleepQuality"],
+
+                depression: +d["DepressionScore"],
+                anxiety: +d["AnxietyScore"],
+                stress: +d["StressScore"],
+
+                das_score: +d["DASScore"],
+                happiness: +d["Happiness"],
+
+                // categorical data
+                gender: +d["Gender"],
+                class_year: +d["ClassYear"],
+                lark_owl: d["LarkOwl"],
+                all_nighter: +d["AllNighter"],
+
+                alcohol_use: +d["AlcoholUse"]
+            }
+        }).then(function(data) {
+
+            // bar chart
+            const x = d3.scaleLinear()
+                        .domain([0, d3.max(data, d => d.depression)])
+                        .range([0, width])
+
+            const y = d3.scaleLinear()
+                        .domain([0, d3.max(data, d => d.poor_sleep_quality)])
+                        .range([height, 0]);
+            
+            const color = d3.scaleOrdinal()
+                            .domain(data.map(d => d.gender))
+                            .range(d3.schemeSet3)
+
+            svg2.append("g")
+                .attr("transform", `translate(0, ${height})`)
+                .call(d3.axisBottom(x));
+
+            svg2.append("g")
+                .call(d3.axisLeft(y));
+
+            svg2.append("g")
+                .selectAll("dot")
+                .data(data)
+                .join("circle")
+                    .attr("cx", function(d) {
+                        return x(d.depression);
+                    })
+                    .attr("cy", function(d) {
+                        return y(d.poor_sleep_quality);
+                    })
+                    .attr("r", 3)
+                    // .style("fill", "blue")
+                    .style("fill", function(d) {return color(d.gender)})
+
+                    // color based on gender, 0 or 1
+
+            // mx + b
+            // depression, m = 0.146172, b = 6.13107
+            svg2.append("line")
+                    .attr("x1", x(0))
+                    .attr("x2", x(35))
+                    .attr("y1", y(6.13107))
+                    .attr("y2", y(35*0.146172 + 6.13107))
+
+
+            // linearRegression = ss.linearRegression(data.map(d => [d.depression, d.poor_sleep_quality]))
+            // linearRegressionLine = ss.linearRegressionLine(linearRegression)
+            // regressionPoints = {
+            //     firstX: data[0].x,
+            //     lastX: data.slice(-1)[0].x,
+            //     xCoordinates: [firstX, lastX]
+                
+            //     return xCoordinates.map(d => ({
+            //         x: d,
+            //         y: linearRegressionLine(d)
+            //     }));
+            // }
+
+        })
+    </script>
+
+<p>
+    ...
+</p>
+
+</div>
+</body>
+</html> -->
